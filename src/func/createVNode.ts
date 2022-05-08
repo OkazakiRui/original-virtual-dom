@@ -9,11 +9,9 @@ import { VirtualNode } from '../types/VirtualNode';
  * @returns { VirtualNode }
  */
 const h = (
-  htmlTagName: string,
-  props: {
-    [key: string]: string;
-  },
-  children: VirtualNode[] | string[]
+  htmlTagName: VirtualNode['htmlTagName'],
+  props: VirtualNode['props'],
+  children: VirtualNode['children']
 ): VirtualNode => ({
   htmlTagName,
   props,
