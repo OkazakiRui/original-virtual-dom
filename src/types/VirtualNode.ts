@@ -1,7 +1,7 @@
 export type VirtualNode = {
-  htmlElement: string;
+  htmlTagName: string;
   props: {
     [key: string]: string;
   };
-  children: VirtualNode[];
+  children: VirtualNode[] | string[];
 };
