@@ -3,10 +3,10 @@ import { VirtualNode } from './../types/VirtualNode';
 /**
  * 要素を仮想DOMから実際のDOMに変換する処理
  * @date 2022-05-09
- * @param { VirtualNode } vnode
+ * @param { VirtualNode | string } vnode
  * @returns { HTMLElement | Text }
  */
-const createElement = (vnode: VirtualNode): HTMLElement | Text => {
+const createElement = (vnode: VirtualNode | string): HTMLElement | Text => {
   // vnodeは仮想DOM || string なので、stringの場合はTextNodeを返却するようにする
   if (typeof vnode === 'string') return document.createTextNode(vnode);
 
