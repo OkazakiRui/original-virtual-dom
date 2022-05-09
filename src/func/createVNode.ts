@@ -6,7 +6,7 @@ import { VirtualNode } from '../types/VirtualNode';
  * @param { string } htmlTagName
  * @param { { [key: string]: string; } } props
  * @param { VirtualNode[] | string[] } children
- * @returns { VirtualNode }
+ * @returns { VirtualNode } VirtualNode
  */
 const h = (
   htmlTagName: VirtualNode['htmlTagName'],
