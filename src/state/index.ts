@@ -1,5 +1,7 @@
-const globalState = {
-  isBeforeMount: true,
+const globalState: {
+  lifecycle: 'beforeMount' | 'afterMount';
+} = {
+  lifecycle: 'beforeMount',
 };
 
 export default globalState;
