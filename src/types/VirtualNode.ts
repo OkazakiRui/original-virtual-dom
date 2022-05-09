@@ -3,5 +3,5 @@ export type VirtualNode = {
   props: {
     [key: string]: string;
   };
-  children: VirtualNode[] | string[];
+  children: (VirtualNode | string)[];
 };
