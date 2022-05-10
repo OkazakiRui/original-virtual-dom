@@ -13,6 +13,9 @@ const diff = (
   oldVNode: VirtualNode | string | undefined,
   newVNode?: VirtualNode | string
 ) => {
+  // 両方の仮想DOMが存在しない場合は処理を終了する
+  if (!newVNode && !oldVNode) return;
+
   // 差分を見る最新の vnode が存在しない場合は el を削除する
   if (!newVNode) return el.remove();
 
