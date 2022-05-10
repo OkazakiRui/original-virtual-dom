@@ -25,24 +25,24 @@ const diff = (
   const replace = () => el.replaceWith(createElement(newVNode));
 
   // どちらかが TextNode の場合は判定をせずに要素を置き換える
-  if (typeof oldVNode === 'string' || typeof newVNode === 'string') {
+  if (typeof oldVNode === 'string' || typeof newVNode === 'string')
     if (oldVNode !== newVNode) return replace();
-  } else {
-    // htmlの要素名が違う場合
-    if (oldVNode.htmlTagName !== newVNode.htmlTagName) return replace();
+    else return;
 
-    // props(属性)が違う場合
-    // entriesでオブジェクトを配列に変換し、sortをすることで順序性を保証することにより差分をチェックする
-    // '[["id","idTest"],["class","classTest"]]'
-    const oldProps = JSON.stringify(Object.entries(oldVNode.props).sort());
-    const newProps = JSON.stringify(Object.entries(newVNode.props).sort());
-    if (oldProps !== newProps) return replace();
+  // htmlの要素名が違う場合
+  if (oldVNode.htmlTagName !== newVNode.htmlTagName) return replace();
 
-    // childrenが違う場合
-    [...el.childNodes].forEach((child, index) => {
-      diff(child, oldVNode.children[index], newVNode.children[index]);
-    });
-  }
+  // props(属性)が違う場合
+  // entriesでオブジェクトを配列に変換し、sortをすることで順序性を保証することにより差分をチェックする
+  // '[["id","idTest"],["class","classTest"]]'
+  const oldProps = JSON.stringify(Object.entries(oldVNode.props).sort());
+  const newProps = JSON.stringify(Object.entries(newVNode.props).sort());
+  if (oldProps !== newProps) return replace();
+
+  // childrenが違う場合
+  [...el.childNodes].forEach((child, index) => {
+    diff(child, oldVNode.children[index], newVNode.children[index]);
+  });
 };
 
 export default diff;
