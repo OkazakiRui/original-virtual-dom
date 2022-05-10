@@ -20,12 +20,7 @@ const createElement = (vnode: VirtualNode | string): HTMLElement | Text => {
   // children が存在する場合要素がなくなるまで処理を回す
   if (vnode.children)
     for (const child of vnode.children) {
-      // child が文字列の場合はTextNodeを生成し、vnode の場合は createElement を呼び再度処理を続ける
-      const appendElement =
-        typeof child === 'string'
-          ? document.createTextNode(child)
-          : createElement(child);
-      el.appendChild(appendElement);
+      el.appendChild(createElement(child));
     }
 
   return el;
