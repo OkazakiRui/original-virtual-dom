@@ -24,7 +24,8 @@ const diff = (
 
   const replace = () => el.replaceWith(createElement(newVNode));
 
-  // どちらかが TextNode の場合は判定をせずに要素を置き換える
+  // どちらかが TextNode の場合処理を分ける
+  // string の値が異なる場合は要素を置き換える
   if (typeof oldVNode === 'string' || typeof newVNode === 'string')
     if (oldVNode !== newVNode) return replace();
     else return;
