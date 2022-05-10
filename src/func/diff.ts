@@ -10,7 +10,7 @@ import createElement from './createElement';
  */
 const diff = (
   el: HTMLElement | ChildNode,
-  oldVNode: VirtualNode | string,
+  oldVNode: VirtualNode | string | undefined,
   newVNode?: VirtualNode | string
 ) => {
   // 差分を見る最新の vnode が存在しない場合は el を削除する
